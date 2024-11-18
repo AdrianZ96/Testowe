@@ -478,7 +478,16 @@ table td {
     }
 
     table th, table td {
-        padding: 8px;
+        padding: 8px; /* Zmniejszone odstępy */
+        text-align: center; /* Wyśrodkowanie treści */
+    }
+
+    table td button {
+        display: block; /* Każdy przycisk jako blok */
+        width: 100%; /* Przyciski zajmują pełną szerokość komórki */
+        margin-bottom: 5px; /* Odstęp między przyciskami */
+        height: auto; /* Automatyczna wysokość dla lepszej elastyczności */
+        padding: 8px; /* Dostosowane odstępy wewnętrzne */
     }
 
     .chart-container {
@@ -494,14 +503,8 @@ table td {
         flex-direction: column;
         gap: 5px;
     }
-    
-    table td button {
-        width: 30px; /* Mniejszy rozmiar przycisków na telefonach */
-        height: 30px;
-    }
-    
-    table th, table td {
-        padding: 8px; /* Zmniejszone odstępy */
-    }
 
+    table th:last-child, table td:last-child {
+        width: auto; /* Usuń sztywną szerokość kolumny dla przycisków */
+    }
 }

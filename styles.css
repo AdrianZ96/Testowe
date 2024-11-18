@@ -411,49 +411,54 @@ body.dark-mode table button {
     transition: background-color 0.3s;
 }
 /* Sekcja Historia - poprawki dla przycisków */
-table td {
-    position: relative; /* Ustawienie pozycji dla wyrównania */
-    text-align: center; /* Wyśrodkowanie zawartości */
-    vertical-align: middle; /* Wyrównanie do środka w pionie */
-    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+/* Ograniczenie szerokości kolumny "Akcje" */
+table th:last-child, table td:last-child {
+    width: 80px; /* Stała szerokość kolumny */
+    text-align: center; /* Wyśrodkowanie treści */
 }
 
+/* Styl dla przycisków w tabeli */
 table td button {
-    display: inline-flex; /* Przyciski w jednej linii */
-    align-items: center; /* Wyśrodkowanie ikony wewnątrz przycisku */
-    justify-content: center; /* Wyśrodkowanie poziome */
-    width: 35px; /* Ustalony rozmiar przycisku */
-    height: 35px; /* Ustalony rozmiar przycisku */
-    padding: 0; /* Usuń wewnętrzne marginesy */
-    margin: 0 5px; /* Dodaj odstęp między przyciskami */
-    border: none; /* Usuń obramowanie */
-    background-color: #444; /* Kolor tła przycisku */
+    display: inline-flex; /* Układ elastyczny */
+    justify-content: center; /* Wyśrodkowanie zawartości */
+    align-items: center; /* Wyśrodkowanie ikony */
+    width: 40px; /* Stała szerokość przycisków */
+    height: 40px; /* Stała wysokość przycisków */
+    padding: 0; /* Brak odstępów wewnętrznych */
+    border: none; /* Brak obramowania */
+    background-color: #444; /* Tło przycisków */
     color: #f1f1f1; /* Kolor tekstu */
     border-radius: 4px; /* Zaokrąglenie rogów */
-    cursor: pointer; /* Zmień kursor na wskaźnik */
-    transition: background-color 0.3s ease; /* Dodaj animację */
+    cursor: pointer; /* Wskaźnik kursora */
+    transition: background-color 0.3s ease; /* Płynny efekt hover */
 }
 
 table td button:hover {
-    background-color: #555; /* Zmiana koloru przycisku przy najechaniu */
+    background-color: #555; /* Jaśniejsze tło przy najechaniu */
 }
 
+
+/* Ustawienie szerokości tabeli */
 table {
-    table-layout: fixed; /* Utrzymanie szerokości kolumn */
-    width: 100%; /* Rozciągnij tabelę na całą szerokość */
-    border-collapse: collapse; /* Usuń odstępy między komórkami */
+    width: 100%; /* Tabela zajmuje całą szerokość kontenera */
+    table-layout: fixed; /* Wszystkie kolumny mają ustaloną szerokość */
+    border-collapse: collapse; /* Usunięcie odstępów między komórkami */
 }
 
-table th, table td {
-    padding: 10px; /* Ustawienia odstępów wewnętrznych */
-    overflow: hidden; /* Ukryj nadmiar zawartości */
-    text-overflow: ellipsis; /* Dodaj "..." dla zbyt długich treści */
-}
-
+/* Nagłówki tabeli */
 table th {
-    text-align: left; /* Tekst w nagłówkach wyrównany do lewej */
-    background-color: #333; /* Kolor tła nagłówka */
-    color: #f1f1f1; /* Kolor tekstu nagłówka */
+    background-color: #f2f2f2; /* Tło nagłówków */
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Wiersze tabeli */
+table td {
+    padding: 10px;
+    overflow: hidden; /* Ukrywa nadmiar treści */
+    text-overflow: ellipsis; /* Dodaje "..." w przypadku długich tekstów */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
 }
 
 

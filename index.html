@@ -1,13 +1,121 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head> 
-    <meta charset="uft-8">
-    <title>Przykład dla Github</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tracker Finansowy</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
-    <h1>Przykładowy tytuł Strony</h1>
+
+    <h1>Twój Tracker Finansowy</h1>
+    <div class="theme-toggle">
+      <label class="toggle">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider"></span>
+      </label>
+      <span>Tryb Ciemny</span>
+  </div>
+  
+  
+    <!-- Formularz dodawania danych -->
+    <form id="finance-form">
+      <div>
+          <label for="amount">Kwota (zł)</label>
+          <input type="number" id="amount" step="0.01" placeholder="Wpisz kwotę">
+      </div>
+      <div>
+          <label for="type">Rodzaj</label>
+          <select id="type">
+              <option value="income">Przychód</option>
+              <option value="expense">Wydatek</option>
+              <option value="savings">Oszczędności</option>
+          </select>
+      </div>
+      <div>
+          <label for="description">Opis (opcjonalnie)</label>
+          <textarea id="description" placeholder="Dodaj krótki opis transakcji..."></textarea>
+      </div>
+      <div>
+          <label for="category">Kategoria</label>
+          <select id="category">
+              <option value="general">Ogólne</option>
+              <option value="fuel">Paliwo</option>
+              <option value="food">Jedzenie</option>
+              <option value="entertainment">Rozrywka</option>
+              <option value="bills">Rachunki</option>
+          </select>
+      </div>
+      <button type="submit">Dodaj</button>
+  </form>
+
+    <!-- Podsumowanie -->
+    <div class="summary">
+      <h2>Podsumowanie</h2>
+      <p>Łączne przychody: <span id="total-income">0.00 zł</span></p>
+      <p>Łączne wydatki: <span id="total-expenses">0.00 zł</span></p>
+      <p>Saldo: <span id="balance">0.00 zł</span></p>
+  </div>
+  <div class="chart-container">
+    <canvas id="summary-chart" width="400" height="200"></canvas>
+</div>
+<div class="quick-stats">
+  <h3>Szybkie Statystyki</h3>
+  <p>Wydatki na jedzenie: <span id="food-expenses">0.00 zł</span></p>
+  <p>Wydatki na paliwo: <span id="fuel-expenses">0.00 zł</span></p>
+  <p>Największy wydatek: <span id="largest-expense">Brak</span></p>
+</div>
+  
+
+    <!-- Historia transakcji -->
+    <div class="history">
+        <h2>Historia</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Kwota</th>
+                    <th>Rodzaj</th>
+                    <th>Kategoria</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-history">
+                <!-- Transakcje będą dodawane tutaj -->
+            </tbody>
+        </table>
+    </div>
+    <div id="notifications-container"></div>
 
 
+    <div class="filters">
+      <h3>Filtry</h3>
+      <label for="filter-type">Typ:</label>
+      <select id="filter-type">
+          <option value="all">Wszystkie</option>
+          <option value="income">Przychód</option>
+          <option value="expense">Wydatek</option>
+          <option value="savings">Oszczędności</option>
+      </select>
+  
+      <label for="filter-category">Kategoria:</label>
+      <select id="filter-category">
+          <option value="all">Wszystkie</option>
+          <option value="general">Ogólne</option>
+          <option value="fuel">Paliwo</option>
+          <option value="food">Jedzenie</option>
+          <option value="entertainment">Rozrywka</option>
+          <option value="bills">Rachunki</option>
+      </select>
+  
+      <label for="filter-date">Zakres dat:</label>
+      <input type="date" id="filter-date-from"> -
+      <input type="date" id="filter-date-to">
+      <button id="apply-filters">Zastosuj filtry</button>
+      <button id="export-csv">Eksportuj do CSV</button>
+  </div>
+    <script src="app.js"></script>
 </body>
 </html>

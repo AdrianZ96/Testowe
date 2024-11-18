@@ -1,0 +1,447 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+}
+
+form, .summary, .history {
+    margin: 20px auto;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.summary p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.history th, .history td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.history th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.history tr:hover {
+    background-color: #f9f9f9;
+}
+button.view-description {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+button.view-description:hover {
+    background: #2980b9;
+}
+
+button.delete-transaction {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button.delete-transaction:hover {
+    background: #c0392b;
+}
+.summary p:last-child {
+    color: #3498db;
+    font-weight: bold;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    resize: none; /* Blokowanie zmiany rozmiaru */
+}
+textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px; /* Wyrównanie marginesu między liniami */
+}
+
+input, select, textarea, button {
+    width: 100%;
+    box-sizing: border-box; /* Uwzględnia padding i border w szerokości */
+}
+.chart-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+.filters {
+    margin: 20px auto;
+    max-width: 600px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.filters label {
+    font-weight: bold;
+}
+
+.filters select, .filters input, .filters button {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.filters button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+    background-color: #45a049;
+}
+#notifications-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    animation: fadeInOut 4s ease-in-out;
+}
+
+.notification.warning {
+    background-color: #FF9800;
+}
+
+.notification.error {
+    background-color: #F44336;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+/* Przełącznik trybu */
+.theme-toggle {
+    text-align: center;
+    margin: 20px;
+    font-weight: bold;
+}
+
+/* Tryb jasny (domyślny) */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Tryb ciemny */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode .summary, 
+body.dark-mode .history, 
+body.dark-mode .filters, 
+body.dark-mode form {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode button:hover {
+    background-color: #444;
+}
+.quick-stats {
+    margin: 20px auto;
+    max-width: 600px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quick-stats p {
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+/* Tabela w trybie ciemnym */
+body.dark-mode table {
+    background-color: #1e1e1e; /* Ciemne tło tabelki */
+    border-color: #333; /* Kolor granic */
+}
+
+body.dark-mode table th,
+body.dark-mode table td {
+    color: #f1f1f1; /* Jasny tekst */
+    border-color: #333; /* Kolor granic */
+}
+
+body.dark-mode table tr:nth-child(even) {
+    background-color: #2a2a2a; /* Ciemniejsze tło dla parzystych wierszy */
+}
+
+body.dark-mode table tr:nth-child(odd) {
+    background-color: #1e1e1e; /* Tło dla nieparzystych wierszy */
+}
+
+/* Filtry w trybie ciemnym */
+body.dark-mode .filters select,
+body.dark-mode .filters input {
+    background-color: #333; /* Ciemne tło pól wyboru */
+    color: #f1f1f1; /* Jasny tekst */
+    border: 1px solid #555; /* Ciemna ramka */
+}
+
+body.dark-mode .filters label {
+    color: #f1f1f1; /* Jasny tekst dla etykiet */
+}
+
+body.dark-mode .filters button {
+    background-color: #444; /* Przyciemniony przycisk */
+    color: #f1f1f1;
+}
+
+body.dark-mode .filters button:hover {
+    background-color: #555; /* Jaśniejszy efekt hover */
+}
+
+/* Powiadomienia w trybie ciemnym */
+body.dark-mode .notification {
+    background-color: #333; /* Ciemne powiadomienie */
+    color: #f1f1f1;
+}
+/* Kontener dla przełącznika */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Styl przełącznika */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+/* Styl włączonego przełącznika */
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+/* Sekcja szybkich statystyk w trybie ciemnym */
+body.dark-mode .quick-stats {
+    background-color: #1e1e1e; /* Ciemne tło */
+    color: #f1f1f1; /* Jasny tekst */
+    border: 1px solid #333; /* Ciemna ramka */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Lekki cień */
+}
+
+body.dark-mode .quick-stats h3 {
+    color: #f1f1f1; /* Jasny nagłówek */
+}
+
+body.dark-mode .quick-stats p {
+    color: #d1d1d1; /* Jaśniejszy tekst dla treści */
+}
+/* Tabela w trybie ciemnym */
+body.dark-mode table {
+    background-color: #1e1e1e; /* Ciemne tło tabeli */
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #333; /* Ciemne granice */
+}
+
+body.dark-mode table th {
+    background-color: #333; /* Ciemne tło nagłówka */
+    color: #f1f1f1; /* Jasny tekst nagłówka */
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #555; /* Subtelna linia pod nagłówkiem */
+}
+
+body.dark-mode table td {
+    color: #d1d1d1; /* Jaśniejszy tekst */
+    padding: 10px;
+    border-bottom: 1px solid #333; /* Subtelne linie między wierszami */
+}
+
+body.dark-mode table tr:nth-child(even) {
+    background-color: #2a2a2a; /* Ciemniejsze tło dla parzystych wierszy */
+}
+
+body.dark-mode table tr:nth-child(odd) {
+    background-color: #1e1e1e; /* Tło dla nieparzystych wierszy */
+}
+
+
+/* Styl przycisków w tabeli */
+body.dark-mode table button {
+    background-color: #444; /* Ciemne tło przycisków */
+    color: #f1f1f1; /* Jasny tekst */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* Ustawienia dla ekranów mobilnych */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+    }
+
+    form, .summary, .quick-stats, .history, .filters {
+        max-width: 100%; /* Rozciągnij elementy na pełną szerokość */
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px; /* Mniejsze czcionki */
+    }
+
+    table th, table td {
+        padding: 8px; /* Zmniejsz odstępy */
+    }
+
+    .chart-container {
+        max-width: 100%; /* Dopasowanie wykresu do ekranu */
+    }
+
+    button {
+        padding: 8px 10px; /* Mniejsze przyciski */
+        font-size: 14px;
+    }
+
+    .theme-toggle {
+        flex-direction: column; /* Przełącznik w kolumnie */
+        gap: 5px;
+    }
+}

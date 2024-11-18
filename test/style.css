@@ -1,0 +1,22 @@
+* {
+  background-color: whitesmoke;
+}
+.abby {
+  width: auto;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button {
+  padding-block: 20px;
+  padding-inline: 40px;
+  background-color: chocolate;
+  border-radius: 15px;
+}
+button:hover {
+  background-color: brown;
+  color: white;
+  padding-inline: 45px;
+  padding-block: 24px;
+}

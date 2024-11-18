@@ -536,11 +536,6 @@ table td.actions button {
     color: #f1f1f1; /* Kolor ikony */
     border: none; /* Brak obramowania */
     cursor: pointer; /* Kursor wskaźnik */
-    transition: background-color 0.3s ease; /* Efekt hover */
-}
-
-table td.actions button:hover {
-    background-color: #555; /* Jaśniejsze tło na hover */
 }
 
 /* Zapobieganie zawijaniu etykiet kolumn */

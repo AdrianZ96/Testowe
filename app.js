@@ -80,9 +80,10 @@ form.addEventListener('submit', (e) => {
 
 // Funkcja dodająca transakcję do tabelki
 function addTransactionToTable(transaction) {
-    const row = document.createElement('tr');
-    row.setAttribute('data-id', transaction.id);
+    const row = document.createElement('tr'); // Tworzymy nowy wiersz
+    row.setAttribute('data-id', transaction.id); // Przypisujemy ID do wiersza
 
+    // Tworzymy wewnętrzny HTML wiersza tabeli
     row.innerHTML = `
         <td data-label="Data">${transaction.date}</td>
         <td data-label="Kwota">${transaction.amount.toFixed(2)} zł</td>
@@ -94,11 +95,14 @@ function addTransactionToTable(transaction) {
         </td>
     `;
 
+    // Pobieramy przycisk "Usuń" i przypisujemy zdarzenie click
     const deleteButton = row.querySelector('.delete-transaction');
     deleteButton.addEventListener('click', () => {
-        removeTransaction(transaction.id);
+        removeTransaction(transaction.id); // Usuwamy transakcję
+        console.log(`Usunięto transakcję o ID: ${transaction.id}`); // Log dla debugowania
     });
 
+    // Dodajemy wiersz do tabeli
     transactionHistory.appendChild(row);
 }
 
@@ -192,6 +196,30 @@ darkModeToggle.addEventListener('change', () => {
         localStorage.setItem('darkMode', 'disabled');
     }
 });
+// Funkcja usuwająca transakcję
+function removeTransaction(id) {
+    // Filtrujemy transakcje, aby usunąć tę o konkretnym ID
+    transactions = transactions.filter((t) => t.id !== id);
+
+    // Zapisujemy zaktualizowaną listę w localStorage
+    saveTransactions();
+
+    // Usuwamy wiersz z tabeli
+    const row = document.querySelector(`[data-id="${id}"]`);
+    if (row) {
+        row.remove();
+        console.log(`Wiersz z ID ${id} został usunięty.`); // Log do debugowania
+    } else {
+        console.error(`Nie znaleziono wiersza z ID ${id}.`);
+    }
+
+    // Aktualizujemy podsumowanie
+    updateSummary();
+
+    // Wyświetlamy powiadomienie
+    showNotification('Usunięto transakcję.', 'warning');
+}
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').then(() => {
         console.log('Service Worker zarejestrowany!');

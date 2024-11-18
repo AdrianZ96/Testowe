@@ -410,6 +410,51 @@ body.dark-mode table button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+/* Sekcja Historia - poprawki dla przycisków */
+table td {
+    position: relative; /* Ustawienie pozycji dla wyrównania */
+    text-align: center; /* Wyśrodkowanie zawartości */
+    vertical-align: middle; /* Wyrównanie do środka w pionie */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+}
+
+table td button {
+    display: inline-flex; /* Przyciski w jednej linii */
+    align-items: center; /* Wyśrodkowanie ikony wewnątrz przycisku */
+    justify-content: center; /* Wyśrodkowanie poziome */
+    width: 35px; /* Ustalony rozmiar przycisku */
+    height: 35px; /* Ustalony rozmiar przycisku */
+    padding: 0; /* Usuń wewnętrzne marginesy */
+    margin: 0 5px; /* Dodaj odstęp między przyciskami */
+    border: none; /* Usuń obramowanie */
+    background-color: #444; /* Kolor tła przycisku */
+    color: #f1f1f1; /* Kolor tekstu */
+    border-radius: 4px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Zmień kursor na wskaźnik */
+    transition: background-color 0.3s ease; /* Dodaj animację */
+}
+
+table td button:hover {
+    background-color: #555; /* Zmiana koloru przycisku przy najechaniu */
+}
+
+table {
+    table-layout: fixed; /* Utrzymanie szerokości kolumn */
+    width: 100%; /* Rozciągnij tabelę na całą szerokość */
+    border-collapse: collapse; /* Usuń odstępy między komórkami */
+}
+
+table th, table td {
+    padding: 10px; /* Ustawienia odstępów wewnętrznych */
+    overflow: hidden; /* Ukryj nadmiar zawartości */
+    text-overflow: ellipsis; /* Dodaj "..." dla zbyt długich treści */
+}
+
+table th {
+    text-align: left; /* Tekst w nagłówkach wyrównany do lewej */
+    background-color: #333; /* Kolor tła nagłówka */
+    color: #f1f1f1; /* Kolor tekstu nagłówka */
+}
 
 
 /* Ustawienia dla ekranów mobilnych */
@@ -444,4 +489,14 @@ body.dark-mode table button {
         flex-direction: column;
         gap: 5px;
     }
+    
+    table td button {
+        width: 30px; /* Mniejszy rozmiar przycisków na telefonach */
+        height: 30px;
+    }
+    
+    table th, table td {
+        padding: 8px; /* Zmniejszone odstępy */
+    }
+
 }

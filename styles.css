@@ -471,40 +471,82 @@ table td {
     form, .summary, .quick-stats, .history, .filters {
         max-width: 100%;
         padding: 15px;
-    }
-
+    }  
+    /* Styl tabeli na urządzenia mobilne */
     table {
-        font-size: 14px;
+        width: 100%;
+        border-collapse: collapse;
     }
 
-    table th, table td {
-        padding: 8px; /* Zmniejszone odstępy */
-        text-align: center; /* Wyśrodkowanie treści */
+    table th {
+        display: none; /* Ukryj nagłówki tabeli */
     }
 
-    table td button {
-        display: block; /* Każdy przycisk jako blok */
-        width: 100%; /* Przyciski zajmują pełną szerokość komórki */
-        margin-bottom: 5px; /* Odstęp między przyciskami */
-        height: auto; /* Automatyczna wysokość dla lepszej elastyczności */
-        padding: 8px; /* Dostosowane odstępy wewnętrzne */
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #1e1e1e;
     }
 
-    .chart-container {
-        max-width: 100%;
+    table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid #444;
     }
 
-    button {
-        padding: 8px 10px;
-        font-size: 14px;
+    table td:last-child {
+        border-bottom: none;
+        justify-content: center;
+        flex-direction: row; /* Przyciski obok siebie */
     }
 
-    .theme-toggle {
-        flex-direction: column;
-        gap: 5px;
+    table td::before {
+        content: attr(data-label); /* Etykiety kolumn */
+        font-weight: bold;
+        color: #f1f1f1;
+        margin-right: 10px;
     }
 
-    table th:last-child, table td:last-child {
-        width: auto; /* Usuń sztywną szerokość kolumny dla przycisków */
-    }
+    /* Styl dla przycisków w kolumnie "Akcje" */
+   /* Wyśrodkowanie i poprawa przycisków w kolumnie "Akcje" */
+table td.actions {
+    display: flex; /* Ustaw układ elastyczny */
+    justify-content: center; /* Wyśrodkuj przyciski poziomo */
+    align-items: center; /* Wyśrodkuj przyciski pionowo */
+    gap: 10px; /* Odstęp między przyciskami */
+    padding: 10px; /* Odstęp wokół przycisków */
+    flex-wrap: wrap; /* Zezwól na zawijanie przycisków, jeśli są za duże */
+    width: 100%;
 }
+
+/* Styl przycisków w kolumnie "Akcje" */
+table td.actions button {
+    display: flex; /* Wyśrodkowanie zawartości przycisku */
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Stała szerokość przycisków */
+    height: 40px; /* Stała wysokość przycisków */
+    font-size: 18px; /* Rozmiar ikony */
+    border-radius: 5px; /* Minimalne zaokrąglenie rogów */
+    background-color: #444; /* Tło przycisku */
+    color: #f1f1f1; /* Kolor ikony */
+    border: none; /* Brak obramowania */
+    cursor: pointer; /* Kursor wskaźnik */
+    transition: background-color 0.3s ease; /* Efekt hover */
+}
+
+table td.actions button:hover {
+    background-color: #555; /* Jaśniejsze tło na hover */
+}
+
+/* Zapobieganie zawijaniu etykiet kolumn */
+table td {
+    white-space: nowrap; /* Blokuj zawijanie tekstu */
+}
+
+}
+

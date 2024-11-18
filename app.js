@@ -84,11 +84,11 @@ function addTransactionToTable(transaction) {
     row.setAttribute('data-id', transaction.id);
 
     row.innerHTML = `
-        <td>${transaction.date}</td>
-        <td>${transaction.amount.toFixed(2)} zł</td>
-        <td>${transaction.type === 'income' ? 'Przychód' : transaction.type === 'expense' ? 'Wydatek' : 'Oszczędności'}</td>
-        <td>${capitalize(transaction.category)}</td>
-        <td>
+        <td data-label="Data">${transaction.date}</td>
+        <td data-label="Kwota">${transaction.amount.toFixed(2)} zł</td>
+        <td data-label="Rodzaj">${transaction.type === 'income' ? 'Przychód' : transaction.type === 'expense' ? 'Wydatek' : 'Oszczędności'}</td>
+        <td data-label="Kategoria">${capitalize(transaction.category)}</td>
+        <td class="actions" data-label="Akcje">
             <button class="view-description" title="${transaction.description || 'Brak opisu'}">📄</button>
             <button class="delete-transaction">🗑️</button>
         </td>
@@ -102,14 +102,6 @@ function addTransactionToTable(transaction) {
     transactionHistory.appendChild(row);
 }
 
-// Funkcja usuwająca transakcję
-function removeTransaction(id) {
-    transactions = transactions.filter(t => t.id !== id);
-    saveTransactions();
-    document.querySelector(`[data-id="${id}"]`).remove();
-    updateSummary();
-    showNotification('Usunięto transakcję.', 'warning');
-}
 
 // Funkcja aktualizująca podsumowanie
 function updateSummary() {

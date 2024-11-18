@@ -419,29 +419,29 @@ body.dark-mode table button {
     }
 
     form, .summary, .quick-stats, .history, .filters {
-        max-width: 100%; /* Rozciągnij elementy na pełną szerokość */
+        max-width: 100%;
         padding: 15px;
     }
 
     table {
-        font-size: 14px; /* Mniejsze czcionki */
+        font-size: 14px;
     }
 
     table th, table td {
-        padding: 8px; /* Zmniejsz odstępy */
+        padding: 8px;
     }
 
     .chart-container {
-        max-width: 100%; /* Dopasowanie wykresu do ekranu */
+        max-width: 100%;
     }
 
     button {
-        padding: 8px 10px; /* Mniejsze przyciski */
+        padding: 8px 10px;
         font-size: 14px;
     }
 
     .theme-toggle {
-        flex-direction: column; /* Przełącznik w kolumnie */
+        flex-direction: column;
         gap: 5px;
     }
 }
